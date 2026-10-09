@@ -9,7 +9,7 @@ import Feedback from "./pages/Feedback";
 import Themes from "./pages/Themes";
 import Changelog from "./pages/Changelog";
 import Privacy from "./pages/Privacy";
-import { REPO, SITE_NAME } from "./config";
+import { REPO } from "./config";
 
 function ScrollTop() {
   const { pathname } = useLocation();

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { REPO } from "../config";
 import { detectOS, fetchLatestRelease, pickAsset, type LatestRelease, type OS } from "../lib/releases";
 import { WindowsIcon, AppleIcon, LinuxIcon } from "./OsIcons";
