@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   Clapperboard, Library, LockKeyhole, Music, Palette, Tv,
   ShieldCheck, Code2, EyeOff, Monitor, History, Users, Film, KeyRound,
+  Server, Share2,
   type LucideIcon,
 } from "lucide-react";
 import DownloadButtons from "../components/DownloadButtons";
@@ -15,8 +16,10 @@ const FEATURES: { icon: LucideIcon; t: string; d: string }[] = [
   { icon: Library, t: "Médiathèque organisée", d: "Films, séries, animes, documentaires et livres — métadonnées TMDB enrichies automatiquement après chaque scan." },
   { icon: Music, t: "AetherFy (YouTube)", d: "Abonnements, playlists, mode musique audio-seul et visualiseur spectral — sans quitter l'app." },
   { icon: Tv, t: "TV en direct", d: "Chaînes IPTV/HLS, zapping instantané, import M3U en un clic et arrêt propre du flux." },
+  { icon: Server, t: "Stockage NAS", d: "Vos bibliothèques peuvent vivre sur un NAS ou un partage réseau : scan et lecture comme en local, sans aucune recopie." },
+  { icon: Share2, t: "Partage entre amis", d: "Demandez à un ami AetherVault de vous téléverser un média via un simple code — de logiciel à logiciel, sans cloud intermédiaire." },
   { icon: LockKeyhole, t: "Coffre privé chiffré", d: "Un espace personnel verrouillé par PIN ou mot de passe, invisible pour les autres profils." },
-  { icon: Palette, t: "Thèmes & profils", d: "Couleurs, typographies, fonds animés vidéo, profils à permissions — chaque membre a son univers." },
+  { icon: Palette, t: "Thèmes & profils", d: "Couleurs, typographies, fonds animés vidéo, profils locaux à permissions — chaque membre a son univers." },
 ];
 
 const MARQUEE: { icon: LucideIcon; label: string }[] = [
@@ -30,6 +33,8 @@ const MARQUEE: { icon: LucideIcon; label: string }[] = [
   { icon: Users, label: "Amis & activité" },
   { icon: Film, label: "Fonds animés" },
   { icon: KeyRound, label: "PO Token 4K" },
+  { icon: Server, label: "Stockage NAS" },
+  { icon: Share2, label: "Partage par code" },
 ];
 
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
@@ -82,7 +87,7 @@ export default function Home() {
           <p className="lead">
             AetherVault Media rassemble films, séries, animes, TV en direct, musique
             YouTube et coffre privé chiffré dans une seule application de bureau —
-            100 % locale, sans compte, sans tracker.
+            100 % locale, sans abonnement, sans tracker.
           </p>
           <DownloadButtons />
           <div className="hero__meta">
@@ -123,8 +128,8 @@ export default function Home() {
         <div className="stats reveal">
           <div className="stat"><b style={{ color: "var(--accent)" }}><Counter to={3} /></b><span>plateformes natives</span></div>
           <div className="stat"><b style={{ color: "var(--accent-2)" }}><Counter to={100} suffix=" %" /></b><span>local & open source</span></div>
-          <div className="stat"><b style={{ color: "var(--accent)" }}><Counter to={0} /></b><span>tracker, compte ou cloud</span></div>
-          <div className="stat"><b style={{ color: "var(--accent-2)" }}><Counter to={6} /></b><span>univers de médias</span></div>
+          <div className="stat"><b style={{ color: "var(--accent)" }}><Counter to={0} /></b><span>abonnement, tracker ou cloud</span></div>
+          <div className="stat"><b style={{ color: "var(--accent-2)" }}><Counter to={7} suffix="+" /></b><span>univers de médias</span></div>
         </div>
       </section>
 
