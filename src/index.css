@@ -210,3 +210,39 @@ footer a:hover { color: var(--text); }
 
 /* ---------- Confidentialité ---------- */
 .priv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+
+/* ---------- Vidéo promotionnelle ---------- */
+.pv__frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--border); background: #000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .5), 0 0 0 1px rgba(124, 92, 255, .15), 0 0 80px rgba(124, 92, 255, .12);
+}
+.pv__media { width: 100%; height: 100%; display: block; border: 0; }
+.pv__poster { display: block; cursor: pointer; padding: 0; }
+.pv__poster img { width: 100%; height: 100%; object-fit: cover; }
+.pv__play {
+  position: absolute; inset: 0; margin: auto; width: 74px; height: 74px; border-radius: 50%;
+  display: grid; place-items: center; color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 40px rgba(124, 92, 255, .5);
+  transition: transform .2s;
+}
+.pv__poster:hover .pv__play { transform: scale(1.08); }
+
+/* ---------- Wiki ---------- */
+.wiki { display: grid; grid-template-columns: 250px 1fr; gap: 40px; margin-top: 36px; }
+.wiki__toc { position: sticky; top: 84px; align-self: start; display: flex; flex-direction: column; gap: 4px; }
+.wiki__toc button {
+  text-align: left; background: none; border: none; color: var(--muted);
+  font-family: var(--font); font-size: 13px; padding: 7px 10px; border-radius: 8px; cursor: pointer;
+  transition: color .2s, background .2s;
+}
+.wiki__toc button:hover { color: var(--text); background: var(--surface); }
+.wiki section[id^="wiki-"] { scroll-margin-top: 90px; }
+.wiki__points { margin: 12px 0 0 18px; color: var(--muted); font-size: 14px; display: grid; gap: 6px; }
+.wiki__points li::marker { color: var(--accent-2); }
+@media (max-width: 900px) {
+  .wiki { grid-template-columns: 1fr; gap: 18px; }
+  .wiki__toc { position: static; flex-direction: row; overflow-x: auto; padding-bottom: 8px; gap: 8px; }
+  .wiki__toc button { white-space: nowrap; border: 1px solid var(--border); }
+}

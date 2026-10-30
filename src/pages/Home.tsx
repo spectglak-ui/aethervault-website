@@ -9,7 +9,7 @@ import {
 import DownloadButtons from "../components/DownloadButtons";
 import { Logo } from "../components/Logo";
 import { useReveal } from "../hooks/useReveal";
-import { REPO } from "../config";
+import PromoVideo from "../components/PromoVideo";
 
 const FEATURES: { icon: LucideIcon; t: string; d: string }[] = [
   { icon: Clapperboard, t: "Lecture native 1080p", d: "Moteur libmpv + rendu logiciel optimisé : zéro transcodage, zéro compromis, même sur les gros fichiers." },
@@ -109,6 +109,12 @@ export default function Home() {
           ))}
         </div>
       </div>
+	  
+	        <section className="section container" id="video">
+        <h2 className="reveal">Le logiciel, <span className="gradient-text">en mouvement</span></h2>
+        <p className="sub reveal">31 secondes pour tout voir : univers, lecteur sans compromis, coffre privé, partage par code.</p>
+        <div className="reveal"><PromoVideo /></div>
+      </section>
 
       <section className="section container">
         <h2 className="reveal">Tout votre contenu, <span className="gradient-text">une seule orbite</span></h2>
@@ -139,10 +145,15 @@ export default function Home() {
           <p className="sub" style={{ margin: "12px auto 28px" }}>
             Le projet avance avec ses utilisateurs : chaque retour compte.
           </p>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <Link className="btn btn--primary" to="/feedback">Signaler / proposer</Link>
-            <a className="btn btn--ghost" href={`https://github.com/${REPO}`} target="_blank" rel="noreferrer">Voir sur GitHub ↗</a>
-            <Link className="btn btn--ghost" to="/decouvrir">Découvrir en vidéo ▶</Link>
+            <button
+              className="btn btn--ghost"
+              onClick={() => document.getElementById("video")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Voir la vidéo ▶
+            </button>
+            <Link className="btn btn--ghost" to="/wiki">Explorer le wiki</Link>
           </div>
         </div>
       </section>

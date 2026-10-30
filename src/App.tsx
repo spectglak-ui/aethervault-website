@@ -3,7 +3,8 @@ import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import Starfield from "./components/Starfield";
 import { Logo } from "./components/Logo";
 import Home from "./pages/Home";
-import Discover from "./pages/Discover";
+import Wiki from "./pages/Wiki";
+import { Navigate } from "react-router-dom";   // à fusionner dans l'import existant
 import Download from "./pages/Download";
 import Feedback from "./pages/Feedback";
 import Themes from "./pages/Themes";
@@ -37,7 +38,7 @@ export default function App() {
 </NavLink>
           <nav className="nav__links">
             <NavLink to="/" end>Accueil</NavLink>
-            <NavLink to="/decouvrir">Découvrir</NavLink>
+            <NavLink to="/wiki">Wiki</NavLink>
             <NavLink to="/telecharger">Télécharger</NavLink>
             <NavLink to="/themes">Thèmes</NavLink>
             <NavLink to="/changelog">Changelog</NavLink>
@@ -57,7 +58,8 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/decouvrir" element={<Discover />} />
+          <Route path="/wiki" element={<Wiki />} />
+          <Route path="/decouvrir" element={<Navigate to="/wiki" replace />} />
           <Route path="/telecharger" element={<Download />} />
           <Route path="/themes" element={<Themes />} />
           <Route path="/changelog" element={<Changelog />} />
